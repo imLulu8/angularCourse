@@ -1,0 +1,29 @@
+
+
+
+<h2>Update Character</h2>
+
+<form (ngSubmit)="updateCharacter()">
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="updatedCharacter.name" name="name" [value]="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Image URL" [(ngModel)]="updatedCharacter.img" name="img" [value]="img">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Price" [(ngModel)]="updatedCharacter.price" name="price" [value]="price">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Category" [(ngModel)]="updatedCharacter.category" name="category" [value]="category">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Ability" [(ngModel)]="updatedCharacter.ability" name="ability" [value]="ability">
+  </mat-form-field>
+
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" type="submit">Update</button>
+</form>

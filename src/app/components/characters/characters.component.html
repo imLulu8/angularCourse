@@ -1,0 +1,26 @@
+
+
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <p style="text-transform: uppercase; text-align: center; margin-top: 50px;">Lista characters!</p>
+        <app-add-button></app-add-button>
+        <div style="display: flex; justify-content: center;">
+            
+            <div>
+                <div style="height: 25px;" *ngFor="let character of characters">
+                    <a  [routerLink]="['/characters', character._id]">
+                        <p>{{character.name}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+</mat-drawer>
+
+
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+

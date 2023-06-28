@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column; align-items: center; height: 80%;">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{character?.name}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{character?.img}}">
+    <mat-card-content>
+      <h2>{{character?.category}}</h2>
+    </mat-card-content>
+    <mat-card-content>
+      <p>{{character?.ability}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="warn" (click)="deleteCharacter()">Delete</button>
+      <app-update-button [_id]="_id"></app-update-button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,41 @@
+
+
+  /* Stili per il drawer menu */
+  .example-container {
+    height: 100%;
+  }
+  
+  .mat-drawer {
+    width: 200px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .mat-drawer p {
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+/* Stili per la lista dei characters */
+.character-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .example-container a:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+  }
+
+
+
+  
