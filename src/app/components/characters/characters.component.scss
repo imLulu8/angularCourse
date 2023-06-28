@@ -1,41 +1,51 @@
+.example-container {
+  height: 100%;
 
 
-  /* Stili per il drawer menu */
-  .example-container {
-    height: 100%;
-  }
-  
-  .mat-drawer {
-    width: 200px;
-    padding: 20px;
-    background-color: #f1f1f1;
-    flex-direction: column;
-    display: flex;
-  }
-  
-  .mat-drawer p {
-    text-transform: uppercase;
-    text-align: center;
-  }
-  
-/* Stili per la lista dei characters */
-.character-list {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container a {
+  a {
     text-decoration: none;
     color: #333;
     padding: 10px;
     transition: background-color 0.3s ease;
   }
-  
-  .example-container a:hover {
+
+  a:hover {
     background-color: #f1f1f1;
     color: #007bff;
   }
+}
+
+.mat-drawer {
+  width: 200px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  flex-direction: column;
+  display: flex;
+
+  p {
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .character-list {
+    display: flex;
+    flex-direction: column;
+  }
 
 
+  .reopen-drawer-button {
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+  }
+}
 
-  
+.example-container .disabledClass {
+
+    .mat-drawer-backdrop .mat-drawer-shown {
+      @media screen and (min-width: 768px) {
+        background-color: none;
+        visibility: hidden;
+      }
+    }
+  }

@@ -1,57 +1,27 @@
+<mat-drawer-container class="example-container disabledClass">
 
 
-<!-- <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
+    <mat-drawer [opened]="isDrawerOpened || !isMobile" (closed)="isDrawerOpened = false"
+        mode="over" opened [style.display]="isMobile ? 'block' : 'visible'"  [disableClose]="disabledClose">
         <p style="text-transform: uppercase; text-align: center; margin-top: 50px;">Lista characters!</p>
         <app-add-button></app-add-button>
         <div style="display: flex; justify-content: center;">
-            
             <div>
                 <div style="height: 25px;" *ngFor="let character of characters">
-                    <a  [routerLink]="['/characters', character._id]">
+                    <a [routerLink]="['/characters', character._id]">
                         <p>{{character.name}}</p>
                     </a>
                 </div>
             </div>
         </div>
+    </mat-drawer>
 
-</mat-drawer>
-
-
-    <mat-drawer-content>
+    <mat-drawer-content [style.marginLeft.px]="isMobile ? 0 : 240">
+        <div *ngIf="!isDrawerOpened || isMobile">
+            <button mat-button (click)="reopenDrawer()"><i class="bi bi-arrow-right-square-fill"></i></button>
+        </div>
         <router-outlet></router-outlet>
     </mat-drawer-content>
 
 
-    
-</mat-drawer-container> -->
-
-<mat-drawer-container class="example-container">
-    
-
-    <mat-drawer mode="side" [opened]="isDrawerOpened" (closed)="isDrawerOpened = false" mode="over" opened [style.display]="isMobile ? 'block' : 'none'">
-      <p style="text-transform: uppercase; text-align: center; margin-top: 50px;">Lista characters!</p>
-      <app-add-button></app-add-button>
-      <div style="display: flex; justify-content: center;">
-        <div>
-          <div style="height: 25px;" *ngFor="let character of characters">
-            <a [routerLink]="['/characters', character._id]">
-              <p>{{character.name}}</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </mat-drawer>
-  
-    <mat-drawer-content [style.marginLeft.px]="isMobile ? 0 : 240">
-        <div *ngIf="!isDrawerOpened">
-            <button mat-button (click)="reopenDrawer()"><i class="bi bi-arrow-right-square-fill"></i></button>
-          </div>
-      <router-outlet></router-outlet>
-    </mat-drawer-content>
-    
-
-  </mat-drawer-container>
-  
-
-
+</mat-drawer-container>
