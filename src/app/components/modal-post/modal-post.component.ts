@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ApiCharactersService } from 'src/app/services/api-characters.service';
 
@@ -7,7 +8,9 @@ import { ApiCharactersService } from 'src/app/services/api-characters.service';
   templateUrl: './modal-post.component.html',
   styleUrls: ['./modal-post.component.scss']
 })
-export class ModalPostComponent {
+export class ModalPostComponent implements OnInit {
+
+  modalform!: FormGroup
 
   name?: string ;
   price?: number;
@@ -19,6 +22,18 @@ export class ModalPostComponent {
     public dialogRef: MatDialogRef<ModalPostComponent>,
     private apiService: ApiCharactersService
   ) {}
+
+  
+  ngOnInit(): void {
+    this.modalform = new FormGroup({
+      name: new FormControl(null, Validators.required),
+      price: new FormControl(0, Validators.required),
+      img: new FormControl(null, Validators.required),
+      ability: new FormControl(null, Validators.required),
+      category: new FormControl(null, Validators.required),
+    })
+
+  }
 
   saveCharacter() {
     const character = {

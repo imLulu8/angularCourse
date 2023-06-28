@@ -2,23 +2,27 @@
 <h2 mat-dialog-title>Add Character</h2>
 <mat-dialog-content class="modal-wid">
   <!-- Aggiungi i campi del personaggio qui -->
-  <form class="d-flex flex-column">
+  <form [formGroup]="modalform" class="d-flex flex-column">
     <mat-form-field>
-      <input matInput placeholder="Name" [(ngModel)]="name" name="name" required>
+      <input matInput placeholder="Name" [(ngModel)]="name" name="name" formControlName="name" required>
     </mat-form-field>
-    
+      <p *ngIf="!modalform.get('name')?.valid && modalform.get('name')?.touched">Insert name</p>
     <mat-form-field>
-      <input matInput placeholder="Price" [(ngModel)]="price" name="price" required >
+      <input matInput placeholder="Price" [(ngModel)]="price" name="price" formControlName="price" required >
     </mat-form-field>
+    <p *ngIf="!modalform.get('price')?.valid && modalform.get('price')?.touched">Insert price</p>
     <mat-form-field>
-      <input matInput placeholder="Image" [(ngModel)]="img" name="img" required>
+      <input matInput placeholder="Image" [(ngModel)]="img" name="img" formControlName="img" required>
     </mat-form-field>
+    <p *ngIf="!modalform.get('img')?.valid && modalform.get('img')?.touched">Insert image</p>
     <mat-form-field>
-      <input matInput placeholder="Ability" [(ngModel)]="ability" name="ability" required>
+      <input matInput placeholder="Ability" [(ngModel)]="ability" name="ability" formControlName="ability" required>
     </mat-form-field>
+    <p *ngIf="!modalform.get('ability')?.valid && modalform.get('ability')?.touched">Insert ability</p>
     <mat-form-field>
-      <input matInput placeholder="Category" [(ngModel)]="category" name="category" required>
+      <input matInput placeholder="Category" [(ngModel)]="category" name="category" formControlName="category" required>
     </mat-form-field>
+    <p *ngIf="!modalform.get('category')?.valid && modalform.get('category')?.touched">Insert category</p>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
