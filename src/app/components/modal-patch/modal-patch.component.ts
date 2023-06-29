@@ -56,12 +56,9 @@ export class ModalPatchComponent {
   
 
   updateCharacter() {
-    console.log('Update button clicked');
-    console.log('Character ID:', this._id);
     if (this._id) {
       this.apiService.updateCharacter('http://localhost:3001/v1/characters/' + this._id, this.updatedCharacter)
         .subscribe((response:any) => {
-          console.log('Character updated', response);
           this.dialogRef.close();
         }, (error: any) => {
           console.error('Error updating character:', error);

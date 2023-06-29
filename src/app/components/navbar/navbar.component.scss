@@ -1,5 +1,5 @@
 
-.navbar{
+.navbar {
     background-color: rgba(70, 70, 70,  0.5) !important;
     z-index: 30;
     position: fixed;
@@ -8,22 +8,26 @@
     left: 0;
     top: 0;
     font-family: 'muli-regular';
-    i{
+    i {
         color: white;
+        margin-left: 5px;
     }
-    .navbar-brand{
+    .navbar-brand {
         padding-top: 0;
     }
-    button{
+    button {
         border: none;
+    }
+    a{
+        color: #fff !important;
+        margin-left: 10px;
+    }
+
+    .bi-house::before, .bi-people-fill::before, .bi-person-lines-fill::before{
+        margin-right: 20px;
     }
  }
 
-.nav-link{
-    color:black  !important;
-    height: 25px;
-    
-}
 
 
     
@@ -53,16 +57,12 @@
         
     }
 
-    .nav-item a{ 
+    .nav-item a { 
         
              font-size: 20px;
             
          }
-         .nav-link{
-             color: #fff;
-           
-         }
-         .nav-link.active{
+         .nav-link.active {
             color: #fff;
         }
     
