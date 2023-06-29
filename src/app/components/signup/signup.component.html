@@ -1,0 +1,37 @@
+
+
+<h1 style="text-align: center; margin-top: 150px;">Sign Up</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" formControlName="name">
+  </mat-form-field>
+  <p *ngIf="!registerForm.get('name')?.valid && registerForm.get('name')?.touched">Inserisci il nome</p>
+
+  <mat-form-field>
+    <mat-label>Surname</mat-label>
+    <input matInput type="text" name="surname" formControlName="surname">
+  </mat-form-field>
+  <p *ngIf="!registerForm.get('surname')?.valid && registerForm.get('surname')?.touched">Inserisci il cognome</p>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="email" name="email" formControlName="email">
+  </mat-form-field>
+  <p *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">Inserisci email</p>
+
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" name="password" formControlName="password">
+  </mat-form-field>
+  <p *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.touched">Inserisci password, minimo 8 caratteri.</p>
+  
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>
+
+<p style="text-align: center; margin-top: 10px;">
+  Are you registered? Go to <a [routerLink]="['/home']">Login</a>.
+</p>

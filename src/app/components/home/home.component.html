@@ -1,19 +1,8 @@
 
 
-<h1 style="text-align: center; margin-top: 150px;">Welcome</h1>
+<h1 style="text-align: center; margin-top: 150px;">Login</h1>
 <form [formGroup]="homeform" (ngSubmit)="onSubmit()">
 
-  <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput type="text" name="name" formControlName="name">
-  </mat-form-field>
-  <p *ngIf="!homeform.get('name')?.valid && homeform.get('name')?.touched">Inserisci il nome</p>
-
-  <mat-form-field>
-    <mat-label>Surname</mat-label>
-    <input matInput type="text" name="surname" formControlName="surname">
-  </mat-form-field>
-  <p *ngIf="!homeform.get('surname')?.valid && homeform.get('surname')?.touched">Inserisci il cognome</p>
 
   <mat-form-field>
     <mat-label>Email</mat-label>
@@ -22,6 +11,16 @@
   <p *ngIf="!homeform.get('email')?.valid && homeform.get('email')?.touched">Inserisci email</p>
 
 
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" name="password" formControlName="password">
+  </mat-form-field>
+  <p *ngIf="!homeform.get('password')?.valid && homeform.get('password')?.touched">Inserisci password </p>
+  
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>
+
+<p style="text-align: center; margin-top: 10px;">
+  Non sei registrato? <a [routerLink]="['/auth']">Registrati</a>.
+</p>

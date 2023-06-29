@@ -23,6 +23,7 @@ import { AddButtonComponent } from './components/add-button/add-button.component
 import { ModalPostComponent } from './components/modal-post/modal-post.component';
 import { UpdateButtonComponent } from './components/update-button/update-button.component';
 import { ModalPatchComponent } from './components/modal-patch/modal-patch.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ModalPatchComponent } from './components/modal-patch/modal-patch.compon
     ModalPostComponent,
     UpdateButtonComponent,
     ModalPatchComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
