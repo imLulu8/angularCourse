@@ -8,19 +8,19 @@
     <mat-label>Email</mat-label>
     <input matInput type="email" name="email" formControlName="email">
   </mat-form-field>
-  <p *ngIf="!homeform.get('email')?.valid && homeform.get('email')?.touched">Inserisci email</p>
+  <p *ngIf="!homeform.get('email')?.valid && homeform.get('email')?.touched">Insert email</p>
 
 
   <mat-form-field>
     <mat-label>Password</mat-label>
     <input matInput type="password" name="password" formControlName="password">
   </mat-form-field>
-  <p *ngIf="!homeform.get('password')?.valid && homeform.get('password')?.touched">Inserisci password </p>
+  <p *ngIf="!homeform.get('password')?.valid && homeform.get('password')?.touched">Insert password </p>
   
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>
 
 <p style="text-align: center; margin-top: 10px;">
-  Non sei registrato? <a [routerLink]="['/auth']">Registrati</a>.
+  If you are not registered, go to <a [routerLink]="['/signup']">Sign Up</a>.
 </p>
