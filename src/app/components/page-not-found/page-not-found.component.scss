@@ -1,0 +1,30 @@
+.back-img{
+    background-image: url('https://static-dm.ubisoft.com/siege/prod/7907369fa863844fc1ae432a9ca0e610.jpg');
+    height: 100vh;
+    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p{
+        color: #00ffe5;
+        margin: 0px auto;
+        text-align: center;
+        width: 95%;
+        font-family: sans-serif;
+        font-weight: 800;
+        -webkit-font-smoothing: antialiased;
+        text-transform: uppercase;
+        font-size: 23px;
+        line-height: 40px;
+    }
+    button{
+        margin-top: 20px;
+        text-transform: uppercase;
+        color: black;
+        background-color: rgb(73,148,242);
+        padding: 30px;
+        font-family: sans-serif;
+        letter-spacing: 0px;
+    }
+}
