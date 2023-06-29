@@ -18,7 +18,7 @@
 
     <mat-drawer-content [style.marginLeft.px]="isMobile ? 0 : 240">
         <div *ngIf="!isDrawerOpened || isMobile">
-            <button mat-button (click)="reopenDrawer()"><i class="bi bi-arrow-right-square-fill"></i></button>
+            <button class="btn-nv" mat-button (click)="reopenDrawer()"><i class="bi bi-arrow-right-square-fill"></i></button>
         </div>
         <router-outlet></router-outlet>
     </mat-drawer-content>

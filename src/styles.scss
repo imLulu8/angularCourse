@@ -18,3 +18,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-color: #ccc;
   }
   
+
+
+  .mat-drawer-backdrop.mat-drawer-shown {
+    @media screen and (min-width: 768px) {
+      background-color: transparent !important;
+    }
+  }

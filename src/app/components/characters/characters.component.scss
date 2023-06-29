@@ -40,12 +40,9 @@
   }
 }
 
-.example-container .disabledClass {
 
-    .mat-drawer-backdrop .mat-drawer-shown {
-      @media screen and (min-width: 768px) {
-        background-color: none;
-        visibility: hidden;
-      }
-    }
+.btn-nv{
+  @media screen and (min-width: 768px) {
+   visibility: hidden;
   }
+}

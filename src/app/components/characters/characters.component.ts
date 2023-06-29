@@ -26,7 +26,7 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.breakpointObserver.observe([Breakpoints.Handset])
+    this.breakpointObserver.observe([Breakpoints.XSmall])
       .subscribe((result: any) => {
         this.isMobile = result.matches;
         this.disabledClose = !this.isMobile;
