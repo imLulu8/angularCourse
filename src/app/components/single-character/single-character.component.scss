@@ -1,5 +1,13 @@
 
-/* Stili per la card */
+.box-mat-card{
+display: flex;
+align-items: center;
+justify-items: center;
+flex-direction: column;
+justify-content: center;
+
+}
+
 .example-card {
     margin: 20px;
     display: flex;
@@ -8,7 +16,22 @@
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
   }
+
+
+    .app-delete-confirmation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+  
+      color: white;
+      z-index: 2;
+    }
+  
+  
   
   .mat-card-title {
     margin-top: 10px;

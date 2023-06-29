@@ -1,5 +1,17 @@
-<div style="display: flex; flex-direction: column; align-items: center; height: 80%;">
+
+
+
+<div class="box-mat-card">
+
+  <app-delete-confirmation
+    (confirm)="deleteCharacter()"
+    (cancel)="closeDeleteConfirmation()"
+    *ngIf="showDeleteConfirmation"
+    class="app-delete-confirmation">
+  </app-delete-confirmation>
+
   <mat-card class="example-card">
+
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{character?.name}}</mat-card-title>
@@ -12,8 +24,9 @@
       <p>{{character?.ability}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button color="warn" (click)="deleteCharacter()">Delete</button>
+      <button mat-button color="warn" (click)="openDeleteConfirmationDialog()">Delete</button>
       <app-update-button [_id]="_id"></app-update-button>
     </mat-card-actions>
   </mat-card>
+
 </div>

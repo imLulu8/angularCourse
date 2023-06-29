@@ -24,6 +24,7 @@ import { ModalPostComponent } from './components/modal-post/modal-post.component
 import { UpdateButtonComponent } from './components/update-button/update-button.component';
 import { ModalPatchComponent } from './components/modal-patch/modal-patch.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SignupComponent } from './components/signup/signup.component';
     UpdateButtonComponent,
     ModalPatchComponent,
     SignupComponent,
+    DeleteConfirmationComponent,
   ],
   imports: [
     BrowserModule,

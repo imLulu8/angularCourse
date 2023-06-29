@@ -10,6 +10,9 @@ import { ApiCharactersService } from 'src/app/services/api-characters.service';
 export class SingleCharacterComponent implements OnInit {
   _id!: string;
   character: any;
+  showDeleteConfirmation = false;
+
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -37,16 +40,16 @@ export class SingleCharacterComponent implements OnInit {
       });
   }
 
-  // updateCharacter() {
-  //   const updatedCharacter = { /* oggetto character con dati aggiornati */ };
-  //   this.apiservice.updateCharacter('http://localhost:3001/v1/characters/' + this._id, updatedCharacter)
-  //     .subscribe(() => {
-  //       console.log('Character updated');
-  //       // Esegui eventuali azioni aggiuntive dopo l'aggiornamento del personaggio
-  //     }, error => {
-  //       console.error('Error updating character:', error);
-  //     });
-  // }
+ 
+
+openDeleteConfirmationDialog() {
+  this.showDeleteConfirmation = true;
+}
+
+closeDeleteConfirmation() {
+  this.showDeleteConfirmation = false;
+}
+
   
 
 
