@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   registrationSuccess = false;
   registerForm! : FormGroup
+  registrationError: string | null = null;
+
 
   constructor(private apiAuthServices: ApiAuthService,  private router: Router){}
 
@@ -42,6 +44,9 @@ export class SignupComponent implements OnInit {
         (error: any) => {
           // Gestisci l'errore di registrazione qui
           console.error('Errore durante la registrazione:', error);
+          if (error.error.message === 'Email is just present') {
+            this.registrationError = 'Account already exist.';
+          }
         }
       );
     }
