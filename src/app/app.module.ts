@@ -26,6 +26,7 @@ import { ModalPatchComponent } from './components/modal-patch/modal-patch.compon
 import { SignupComponent } from './components/signup/signup.component';
 import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AlertSignupComponent } from './components/alert-signup/alert-signup.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SignupComponent,
     DeleteConfirmationComponent,
     PageNotFoundComponent,
+    AlertSignupComponent,
   ],
   imports: [
     BrowserModule,
