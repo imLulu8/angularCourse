@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { ApiAuthService } from 'src/app/services/api-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,10 +9,10 @@ import { ApiAuthService } from 'src/app/services/api-auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  registrationSuccess = false;
   registerForm! : FormGroup
 
-  constructor(private apiAuthServices: ApiAuthService){}
+  constructor(private apiAuthServices: ApiAuthService,  private router: Router){}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -31,6 +31,13 @@ export class SignupComponent implements OnInit {
         (response: any) => {
           // Registrazione avvenuta con successo, puoi gestire l'azione successiva qui
           console.log('Registrazione avvenuta con successo:', response);
+
+          this.registrationSuccess = true
+          this.registerForm.reset();
+
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 5000);
         },
         (error: any) => {
           // Gestisci l'errore di registrazione qui

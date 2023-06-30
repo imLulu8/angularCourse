@@ -32,6 +32,9 @@
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>
 
+<app-alert-signup *ngIf="registrationSuccess" [message]="'Registrazione avvenuta con successo!'" (close)="registrationSuccess = false"></app-alert-signup>
+
+
 <p style="text-align: center; margin-top: 10px;">
   Are you registered? Go to <a [routerLink]="['/home']">Login</a>.
 </p>
