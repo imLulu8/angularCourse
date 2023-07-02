@@ -7,26 +7,26 @@
     <mat-label>Name</mat-label>
     <input matInput type="text" name="name" formControlName="name">
   </mat-form-field>
-  <p *ngIf="!registerForm.get('name')?.valid && registerForm.get('name')?.pristine && formDir.submitted || registerForm.get('name')?.touched && !registerForm.get('name')?.dirty || registerForm.get('name')?.touched && !registerForm.get('name')?.value">Enter name</p>
+  <p *ngIf="!registerForm.get('name')?.valid && registerForm.get('name')?.pristine && formDir.submitted || registerForm.get('name')?.touched && !registerForm.get('name')?.value">Enter name</p>
 
   <mat-form-field>
     <mat-label>Surname</mat-label>
     <input matInput type="text" name="surname" formControlName="surname">
   </mat-form-field>
-  <p *ngIf="!registerForm.get('surname')?.valid && registerForm.get('surname')?.pristine && formDir.submitted || registerForm.get('surname')?.touched && !registerForm.get('surname')?.dirty || registerForm.get('surname')?.touched && !registerForm.get('surname')?.value  ">Enter surname</p>
+  <p *ngIf="!registerForm.get('surname')?.valid && registerForm.get('surname')?.pristine && formDir.submitted || registerForm.get('surname')?.touched && !registerForm.get('surname')?.value  ">Enter surname</p>
 
   <mat-form-field>
     <mat-label>Email</mat-label>
     <input matInput type="email" name="email" formControlName="email">
   </mat-form-field>
   <p *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched && registerForm.get('email')?.dirty ">Your email is not valid</p>
-  <p *ngIf="registerForm.get('email')?.pristine && formDir.submitted && !registerForm.get('email')?.value   || registerForm.get('email')?.touched && !registerForm.get('email')?.dirty && !registerForm.get('email')?.dirty || registerForm.get('email')?.touched && !registerForm.get('email')?.value  ">Enter Email</p>
+  <p *ngIf="registerForm.get('email')?.pristine && formDir.submitted && !registerForm.get('email')?.value || registerForm.get('email')?.touched && !registerForm.get('email')?.value  ">Enter Email</p>
 
   <mat-form-field>
     <mat-label>Password</mat-label>
     <input matInput type="password" name="password" formControlName="password">
   </mat-form-field>
-  <p *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.dirty || !registerForm.get('password')?.valid && registerForm.get('password')?.touched   ||  registerForm.get('password')?.pristine && formDir.submitted || registerForm.get('password')?.touched && !registerForm.get('password')?.dirty || registerForm.get('password')?.touched && !registerForm.get('password')?.value">Enter password with at least 8 characters.</p>
+  <p *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.dirty || !registerForm.get('password')?.valid && registerForm.get('password')?.touched   ||  registerForm.get('password')?.pristine && formDir.submitted || registerForm.get('password')?.touched && !registerForm.get('password')?.value">Enter password with at least 8 characters.</p>
   
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
