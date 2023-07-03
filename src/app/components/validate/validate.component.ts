@@ -34,19 +34,17 @@ export class ValidateComponent implements OnInit {
         (response: any) => {
           // Validazione avvenuta con successo
           this.validateSuccess = true;
-          console.log('Validazione avvenuta con successo:', response);
           // Effettua l'azione desiderata, come reindirizzamento alla home
           this.validateForm.reset;
 
-          // setTimeout(() => {
-          //   this.router.navigate(['/']);
-          // }, 5000);
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 5000);
 
         },
         
         (error: any) => {
           // Gestisci l'errore di registrazione qui
-          console.error('Errore durante la validazione:', error);
           if (error.error.message === 'token not valid') {
             this.validateSuccess = false;
             this.validateError = 'Token not valid.';
