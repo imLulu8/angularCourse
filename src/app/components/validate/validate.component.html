@@ -9,7 +9,7 @@
     <p class="mt-4 danger" *ngIf="validateError">{{ validateError }}</p>
   </form>
 
-  <app-alert *ngIf="validateSuccess" [message]="'Validation successful. You can now proceed with login'" (close)="validateSuccess = false"></app-alert>
+  <app-alert  *ngIf="validateSuccess" [message]="'Validation successful. You can now proceed with login.'" (close)="validateSuccess = false"></app-alert>
 
 
 

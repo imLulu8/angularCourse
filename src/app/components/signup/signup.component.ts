@@ -32,8 +32,6 @@ export class SignupComponent implements OnInit {
       this.apiAuthServices.signup(registerData).subscribe(
         (response: any) => {
           // Registrazione avvenuta con successo, puoi gestire l'azione successiva qui
-          console.log('Registrazione avvenuta con successo:', response);
-
           this.registrationSuccess = true
           this.registerForm.reset();
 
@@ -44,7 +42,6 @@ export class SignupComponent implements OnInit {
         },
         (error: any) => {
           // Gestisci l'errore di registrazione qui
-          console.error('Errore durante la registrazione:', error);
           if (error.error.message === 'Email is just present') {
             this.registrationError = 'Account already exist.';
             this.registrationSuccess = false;

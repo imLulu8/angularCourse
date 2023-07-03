@@ -27,9 +27,6 @@ export class ValidateComponent implements OnInit {
   onSubmit(): void {
     if (this.validateForm.valid) {
       const tokenVerify = this.validateForm.get('tokenVerify')?.value;
-      console.log('TokenVerify', tokenVerify )
-
-  
       this.authService.validateUser(tokenVerify).subscribe(
         (response: any) => {
           // Validazione avvenuta con successo
@@ -40,7 +37,6 @@ export class ValidateComponent implements OnInit {
           setTimeout(() => {
             this.router.navigate(['/']);
           }, 5000);
-
         },
         
         (error: any) => {
