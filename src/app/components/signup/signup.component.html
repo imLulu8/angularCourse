@@ -1,5 +1,8 @@
 
+
+
 <h1 class="text-center mt-5">Sign Up</h1>
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" #formDir="ngForm">
 
   <mat-form-field>
@@ -31,12 +34,12 @@
   <button mat-raised-button color="primary" type="submit">Submit</button>
   <p class="mt-4 danger" *ngIf="registrationError">{{ registrationError }}</p>
 
+    <app-alert style="margin-top: -300px;" *ngIf="registrationSuccess" [message]="'Sign up success!'" (close)="registrationSuccess = false"></app-alert>
+   
 </form>
-<div class="positionAlert" >
-<app-alert *ngIf="registrationSuccess" [message]="'Registrazione avvenuta con successo!'" (close)="registrationSuccess = false"></app-alert>
-</div>
 
-<p class="text-center pb-4" >
+
+<p class="text-center" >
   Are you registered? Go to <a [routerLink]="['/home']">Login</a>.
 </p>
 

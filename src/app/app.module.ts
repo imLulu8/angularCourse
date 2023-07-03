@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule, NgModel } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,  HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -28,6 +28,9 @@ import { DeleteConfirmationComponent } from './components/delete-confirmation/de
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {CustomAlertComponent} from './components/alert/alert.component';
 import { ValidateComponent } from './components/validate/validate.component';
+
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,8 +66,11 @@ import { ValidateComponent } from './components/validate/validate.component';
   ],
   providers: [
     NgModel,
-    { provide: MatDialogRef, useValue: {} }, // Aggiungi questa riga per fornire MatDialogRef
+    { provide: [HTTP_INTERCEPTORS, MatDialogRef] , 
+      useValue: {}, 
+      useClass: AuthInterceptorService,
+      multi:true  }, 
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} 
