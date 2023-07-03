@@ -1,0 +1,11 @@
+<form [formGroup]="validateForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="tokenVerify">Token di verifica:</label>
+      <input type="text" id="tokenVerify" name="tokenVerify" formControlName="tokenVerify">
+    </div>
+    <button mat-raised-button color="primary" type="submit">Verifica Utente</button>
+    <p class="mt-4 danger" *ngIf="validateError">{{ validateError }}</p>
+  </form>
+
+
+  

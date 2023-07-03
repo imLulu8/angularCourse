@@ -27,6 +27,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {CustomAlertComponent} from './components/alert-signup/alert-signup.component';
+import { ValidateComponent } from './components/validate/validate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import {CustomAlertComponent} from './components/alert-signup/alert-signup.compo
     DeleteConfirmationComponent,
     PageNotFoundComponent,
     CustomAlertComponent,
+    ValidateComponent,
   ],
   imports: [
     BrowserModule,

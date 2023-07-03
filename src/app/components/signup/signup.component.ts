@@ -38,14 +38,16 @@ export class SignupComponent implements OnInit {
           this.registerForm.reset();
 
           setTimeout(() => {
-            this.router.navigate(['/']);
-          }, 5000);
+            this.router.navigate([`validate/${response.verify}`]);
+          }, 3000);
+          
         },
         (error: any) => {
           // Gestisci l'errore di registrazione qui
           console.error('Errore durante la registrazione:', error);
           if (error.error.message === 'Email is just present') {
             this.registrationError = 'Account already exist.';
+            this.registrationSuccess = false;
           }
         }
       );

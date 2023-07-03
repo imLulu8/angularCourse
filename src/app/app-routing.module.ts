@@ -5,15 +5,17 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { SingleCharacterComponent } from './components/single-character/single-character.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ValidateComponent } from './components/validate/validate.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'characters', component: CharactersComponent,  children: [
     { path: ':_id', component: SingleCharacterComponent }] },
-    { path: 'signup', component: SignupComponent },
-    {path: 'notfound', component: PageNotFoundComponent, pathMatch:'full'},
-    {path:'**', redirectTo:'notfound'},
+  { path: 'signup', component: SignupComponent },
+  { path: 'validate/:tokenVerify', component: ValidateComponent },
+  {path: 'notfound', component: PageNotFoundComponent, pathMatch:'full'},
+  {path:'**', redirectTo:'notfound'},
 ];
 
 @NgModule({
