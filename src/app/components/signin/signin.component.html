@@ -23,6 +23,8 @@
     loginForm.get('password')?.touched && !loginForm.get('password')?.value">Enter password with at least 8 characters.</p>
   
   <button mat-raised-button color="primary" type="submit">Submit</button>
+  <p class="mt-4 danger" *ngIf="loginError">{{ loginError }}</p>
+
 </form>
 
 <p class="text-center mt-3">

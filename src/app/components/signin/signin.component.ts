@@ -47,7 +47,7 @@ export class SignInComponent implements OnInit {
         (error: any) => {
           // Gestisci l'errore di login qui
           if (error.error.message === 'Invalid credentials') {
-            this.loginError = 'Unauthorized';
+            this.loginError = 'Invalid credentials';
             this.isLogged = this.apiAuthService.isLogged.next(false)
           }
         }
