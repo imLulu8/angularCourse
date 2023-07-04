@@ -21,5 +21,10 @@ private apiUrl = 'http://localhost:3001/v1/auth'
   signin(userData:any){
     return this.http.post(`${this.apiUrl}/login`, userData)
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  }
   
 }

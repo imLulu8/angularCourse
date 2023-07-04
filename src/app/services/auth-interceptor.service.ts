@@ -15,9 +15,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     if (isLogged) {
       // Ottieni il token dal localStorage o da un altro luogo in cui lo hai memorizzato
-      const token = localStorage.getItem('token');
-      console.log('Logged???', isLogged);
-      
+      const token = localStorage.getItem('token');      
 
       // Clona la richiesta e aggiungi l'header di autorizzazione con il token
       const authorizedRequest = request.clone({

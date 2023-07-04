@@ -32,13 +32,20 @@ export class SignInComponent implements OnInit {
 
           // Salva il token nel localStorage
           localStorage.setItem('token', token);
+             
+          // Salva l'utente nel localStorage
+          const { name, surname, email } = response.user;
+          const user = { name, surname, email };
+          if (user){
+          localStorage.setItem('user', JSON.stringify(user));
+          }
 
           this.isLogged = true;
           this.loginForm.reset();
 
-          setTimeout(() => {
-            this.router.navigate(['/characters']);
-          }, 3000);
+          // setTimeout(() => {
+          //   this.router.navigate(['/characters']);
+          // }, 3000);
         },
         (error: any) => {
           // Gestisci l'errore di login qui

@@ -8,7 +8,10 @@
      <a class="nav-link" routerLink="/"><i class="bi bi-house "></i> Home</a>
      <a class="nav-link" routerLink="/characters"><i class="bi bi-people-fill"></i> Characters</a>
      <a class="nav-link" routerLink="/signup"><i class="bi bi-person-lines-fill"></i> Sign Up</a>
-
    </div>
  </div>
+
+ <button *ngIf="isLogged" class="nav-link" (click)="logout()"><i class="bi bi-box-arrow-right"></i> Logout</button>
+
+
 </nav>
