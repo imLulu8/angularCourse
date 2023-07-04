@@ -8,10 +8,14 @@ export class AuthInterceptorService implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
-    if (request.method === 'POST' || request.method === 'PATCH' || request.method === 'DELETE') {
+    console.log("🚀~ intercept ~ request:", request);
+    if (request.method === 'POST' 
+      || request.method === 'PATCH' 
+      || request.method === 'DELETE'
+      || !request.url.includes('login')) {
       // Ottieni il token dal localStorage o da un altro luogo in cui lo hai memorizzato
       const token = localStorage.getItem('token');
+      console.log('TOKEN', token)
 
       // Clona la richiesta e aggiungi l'header di autorizzazione con il token
       const authorizedRequest = request.clone({

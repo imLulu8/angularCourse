@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiCharactersService } from 'src/app/services/api-characters.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
@@ -7,13 +7,16 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.scss']
 })
-export class CharactersComponent implements OnInit, AfterViewInit {
+export class CharactersComponent implements OnInit, AfterViewInit, AfterViewChecked {
   isDrawerOpened: boolean = true;
   isMobile: boolean = false;
   characters: any;
   disabledClose: boolean = false;
 
-  constructor(private apiservice: ApiCharactersService, private breakpointObserver: BreakpointObserver) { }
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private apiservice: ApiCharactersService, 
+    private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.isDrawerOpened = false;
@@ -32,6 +35,14 @@ export class CharactersComponent implements OnInit, AfterViewInit {
         this.disabledClose = !this.isMobile;
       });
   }
+
+  ngAfterViewChecked() {
+    this.cdr.detectChanges();
+  }
+
+ /*  ngAfterContentChecked() {
+    this.cdr.detectChanges();
+  } */
 
   reopenDrawer() {
     this.isDrawerOpened = true;

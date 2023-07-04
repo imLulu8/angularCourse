@@ -14,9 +14,12 @@ private apiUrl = 'http://localhost:3001/v1/auth'
   }
 
   validateUser(verify: string) {
-    console.log('verify', verify)
     const url = `${this.apiUrl}/validate/${verify}`;
     return this.http.get(url);
+  }
+
+  signin(userData:any){
+    return this.http.post(`${this.apiUrl}/login`, userData)
   }
   
 }

@@ -14,7 +14,6 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './components/home/home.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { SingleCharacterComponent } from './components/single-character/single-character.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -24,18 +23,18 @@ import { ModalPostComponent } from './components/modal-post/modal-post.component
 import { UpdateButtonComponent } from './components/update-button/update-button.component';
 import { ModalPatchComponent } from './components/modal-patch/modal-patch.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { SignInComponent}  from './components/signin/signin.component'
 import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {CustomAlertComponent} from './components/alert/alert.component';
 import { ValidateComponent } from './components/validate/validate.component';
-
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
+    SignInComponent,
     CharactersComponent,
     SingleCharacterComponent,
     FakeNavComponent,
@@ -66,10 +65,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
   ],
   providers: [
     NgModel,
-    { provide: [HTTP_INTERCEPTORS, MatDialogRef] , 
-      useValue: {}, 
-      useClass: AuthInterceptorService,
-      multi:true  }, 
+    { provide: MatDialogRef, useValue: {}, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent],
 })
