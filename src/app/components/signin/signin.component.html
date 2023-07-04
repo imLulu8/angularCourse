@@ -1,23 +1,27 @@
 
 
 <h1 class="text-center mt-5">Login</h1>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formDir="ngForm">
 
 
   <mat-form-field>
     <mat-label>Email</mat-label>
     <input matInput type="email" name="email" formControlName="email">
   </mat-form-field>
-  <p *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">Insert email</p>
+  <p *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched && loginForm.get('email')?.dirty ">Your email is not valid</p>
+  <p *ngIf="loginForm.get('email')?.pristine && formDir.submitted && !loginForm.get('email')?.value ||
+   loginForm.get('email')?.touched && !loginForm.get('email')?.value  ">Enter Email</p>
 
 
   <mat-form-field>
     <mat-label>Password</mat-label>
     <input matInput type="password" name="password" formControlName="password">
   </mat-form-field>
-  <p *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">Insert password </p>
+  <p *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.dirty ||
+    !loginForm.get('password')?.valid && loginForm.get('password')?.touched   ||
+    loginForm.get('password')?.pristine && formDir.submitted ||
+    loginForm.get('password')?.touched && !loginForm.get('password')?.value">Enter password with at least 8 characters.</p>
   
-
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>
 

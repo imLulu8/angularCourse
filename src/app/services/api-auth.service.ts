@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiAuthService {
-private apiUrl = 'http://localhost:3001/v1/auth'
+private apiUrl = 'http://localhost:3001/v1/auth';
+
+  isLogged = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) { }
 

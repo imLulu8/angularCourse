@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiAuthService } from 'src/app/services/api-auth.service';
@@ -10,10 +10,11 @@ import { ApiAuthService } from 'src/app/services/api-auth.service';
 })
 export class SignInComponent implements OnInit {
   loginForm!: FormGroup;
-  isLogged = false;
   loginError: string | null = null;
 
   constructor(private router: Router, private apiAuthService: ApiAuthService) { }
+  isLogged = this.apiAuthService.isLogged.next(false);
+
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -39,21 +40,22 @@ export class SignInComponent implements OnInit {
           localStorage.setItem('user', JSON.stringify(user));
           }
 
-          this.isLogged = true;
+          this.isLogged = this.apiAuthService.isLogged.next(true)
           this.loginForm.reset();
-
-          setTimeout(() => {
-            this.router.navigate(['/characters']);
-          }, 3000);
+          this.router.navigate(['/characters']);
         },
         (error: any) => {
           // Gestisci l'errore di login qui
           if (error.error.message === 'Invalid credentials') {
             this.loginError = 'Unauthorized';
-            this.isLogged = false;
+            this.isLogged = this.apiAuthService.isLogged.next(false)
           }
         }
       );
     }
   }
+
+
+
+  
 }

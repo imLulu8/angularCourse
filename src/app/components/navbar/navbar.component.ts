@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiAuthService } from 'src/app/services/api-auth.service';
 import { AuthInterceptorService } from 'src/app/services/auth-interceptor.service';
 
@@ -9,16 +10,15 @@ import { AuthInterceptorService } from 'src/app/services/auth-interceptor.servic
 })
 export class NavbarComponent implements OnInit {
 
-  isLogged = false;
 
-  constructor(private authService: ApiAuthService){
+  
+  
+  constructor(private authService: ApiAuthService, private router: Router){}
+  isLogged = this.authService.isLogged;
 
-  this.isLogged = localStorage.getItem('token') !== null;
-
-  }
   logout() {
     this.authService.logout();
-    this.isLogged = false;
+    this.router.navigate(['/signin']);
   }
 
   ngOnInit(): void {
