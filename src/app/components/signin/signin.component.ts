@@ -27,7 +27,6 @@ export class SignInComponent implements OnInit {
       const loginData = this.loginForm.value;
       this.apiAuthService.signin(loginData).subscribe(
         (response: any) => {
-          console.log('Response:', response);
           const token = response.token;
 
           // Salva il token nel localStorage
@@ -43,9 +42,9 @@ export class SignInComponent implements OnInit {
           this.isLogged = true;
           this.loginForm.reset();
 
-          // setTimeout(() => {
-          //   this.router.navigate(['/characters']);
-          // }, 3000);
+          setTimeout(() => {
+            this.router.navigate(['/characters']);
+          }, 3000);
         },
         (error: any) => {
           // Gestisci l'errore di login qui
