@@ -1,21 +1,21 @@
 
 
 <h1 class="text-center mt-5">Login</h1>
-<form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
 
   <mat-form-field>
     <mat-label>Email</mat-label>
     <input matInput type="email" name="email" formControlName="email">
   </mat-form-field>
-  <p *ngIf="!loginform.get('email')?.valid && loginform.get('email')?.touched">Insert email</p>
+  <p *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">Insert email</p>
 
 
   <mat-form-field>
     <mat-label>Password</mat-label>
     <input matInput type="password" name="password" formControlName="password">
   </mat-form-field>
-  <p *ngIf="!loginform.get('password')?.valid && loginform.get('password')?.touched">Insert password </p>
+  <p *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">Insert password </p>
   
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
