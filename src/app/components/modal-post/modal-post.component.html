@@ -6,23 +6,23 @@
     <mat-form-field>
       <input matInput placeholder="Name" [(ngModel)]="name" name="name" formControlName="name" required>
     </mat-form-field>
-      <p *ngIf="!modalform.get('name')?.valid && modalform.get('name')?.touched">Insert name</p>
+      <p *ngIf="!modalform.get('name')?.valid && modalform.get('name')?.touched">Enter name</p>
     <mat-form-field>
       <input matInput placeholder="Price" [(ngModel)]="price" name="price" formControlName="price" required >
     </mat-form-field>
-    <p *ngIf="!modalform.get('price')?.valid && modalform.get('price')?.touched">Insert price</p>
+    <p *ngIf="!modalform.get('price')?.valid && modalform.get('price')?.touched">Enter price</p>
     <mat-form-field>
       <input matInput placeholder="Image" [(ngModel)]="img" name="img" formControlName="img" required>
     </mat-form-field>
-    <p *ngIf="!modalform.get('img')?.valid && modalform.get('img')?.touched">Insert image</p>
+    <p *ngIf="!modalform.get('img')?.valid && modalform.get('img')?.touched">Enter image</p>
     <mat-form-field>
       <input matInput placeholder="Ability" [(ngModel)]="ability" name="ability" formControlName="ability" required>
     </mat-form-field>
-    <p *ngIf="!modalform.get('ability')?.valid && modalform.get('ability')?.touched">Insert ability</p>
+    <p *ngIf="!modalform.get('ability')?.valid && modalform.get('ability')?.touched">Enter ability</p>
     <mat-form-field>
       <input matInput placeholder="Category" [(ngModel)]="category" name="category" formControlName="category" required>
     </mat-form-field>
-    <p *ngIf="!modalform.get('category')?.valid && modalform.get('category')?.touched">Insert category</p>
+    <p *ngIf="!modalform.get('category')?.valid && modalform.get('category')?.touched">Enter category</p>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
