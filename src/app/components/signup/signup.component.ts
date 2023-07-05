@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiAuthService } from 'src/app/services/api-auth.service';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,9 @@ export class SignupComponent implements OnInit {
   hide: boolean = true;
 
   
-  constructor(private apiAuthServices: ApiAuthService,  private router: Router){}
+  constructor( private apiAuthServices: ApiAuthService,  
+    private router: Router, 
+    private sharedService : SharedService){}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -36,12 +39,13 @@ export class SignupComponent implements OnInit {
         (response: any) => {
           // Registrazione avvenuta con successo, puoi gestire l'azione successiva qui
           this.registrationSuccess = true
+          this.openAlert();
           this.registerForm.reset();
 
           setTimeout(() => {
-            this.router.navigate([`validate/${response.verify}`]);
+            // this.closeAlert();
+            // this.router.navigate([`validate/${response.verify}`]);
           }, 1000);
-          
         },
         (error: any) => {
           // Gestisci l'errore di registrazione qui
@@ -52,6 +56,23 @@ export class SignupComponent implements OnInit {
         }
       );
     }
+  }
+
+  openAlert(): void {
+    this.sharedService.handleAlert.next({
+      message: 'Sign up success',
+      isVisible: true
+    })
+  }
+
+  closeAlert():void {
+    this.sharedService.handleAlert.next({
+      isVisible: false
+    })
 
   }
+
+
+
+
 }

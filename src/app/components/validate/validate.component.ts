@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ApiAuthService } from '../../services/api-auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from 'src/app/services/shared.service';
 
 
 @Component({
@@ -14,7 +15,10 @@ export class ValidateComponent implements OnInit {
   validateForm!: FormGroup
   validateSuccess = false;
 
-  constructor( private route: ActivatedRoute,private authService: ApiAuthService, private router: Router   ) { }
+  constructor( private route: ActivatedRoute,
+    private authService: ApiAuthService, 
+    private router: Router,
+    private sharedService : SharedService   ) { }
 
   ngOnInit(): void {
     const verify = this.route.snapshot.paramMap.get('tokenVerify');
@@ -31,12 +35,14 @@ export class ValidateComponent implements OnInit {
         (response: any) => {
           // Validazione avvenuta con successo
           this.validateSuccess = true;
+          this.openAlert();
           // Effettua l'azione desiderata, come reindirizzamento alla home
           this.validateForm.reset;
 
           setTimeout(() => {
-            this.router.navigate(['/']);
-          }, 5000);
+            this.closeAlert();
+            this.router.navigate(['/signin']);
+          }, 1000);
         },
         
         (error: any) => {
@@ -49,6 +55,21 @@ export class ValidateComponent implements OnInit {
       );
     }
   }
+
+  openAlert(): void {
+    this.sharedService.handleAlert.next({
+      message: 'Validation successfull. Go to login',
+      isVisible: true
+    })
+  }
+
+  closeAlert():void {
+    this.sharedService.handleAlert.next({
+      isVisible: false
+    })
+
+  }
+
   
   
   

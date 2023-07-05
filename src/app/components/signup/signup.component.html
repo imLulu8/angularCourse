@@ -40,8 +40,6 @@
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
   <p class="mt-4 danger" *ngIf="registrationError">{{ registrationError }}</p>
-
-    <app-alert style="margin-top: -300px;" *ngIf="registrationSuccess" [message]="'Sign up success!'" (close)="registrationSuccess = false"></app-alert>
    
 </form>
 
