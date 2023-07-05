@@ -28,6 +28,14 @@ private apiUrl = 'http://localhost:3001/v1/auth';
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    this.isLogged.next(false);
+  }
+
+  autoLogin(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.isLogged.next(true);
+    }
   }
 
 }
