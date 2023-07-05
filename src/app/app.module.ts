@@ -30,6 +30,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import {CustomAlertComponent} from './components/alert/alert.component';
 import { ValidateComponent } from './components/validate/validate.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     PageNotFoundComponent,
     CustomAlertComponent,
     ValidateComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

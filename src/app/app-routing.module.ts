@@ -7,9 +7,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ValidateComponent } from './components/validate/validate.component';
 import { AuthGuard } from './services/auth.guard';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'signin', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'characters', component: CharactersComponent, canActivate: [AuthGuard] ,children: [
     { path: ':_id', component: SingleCharacterComponent }] },
