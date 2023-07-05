@@ -11,14 +11,7 @@ import { ApiAuthService } from 'src/app/services/api-auth.service';
 export class SignInComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
-  hidePassword: boolean = true;
-
-  togglePasswordVisibility() {
-  this.hidePassword = !this.hidePassword;
-  }
-
-
-  
+  hide: boolean = true;
 
   constructor(private router: Router, private apiAuthService: ApiAuthService) { }
   isLogged = this.apiAuthService.isLogged.next(false);

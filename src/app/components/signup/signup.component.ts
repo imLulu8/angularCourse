@@ -14,11 +14,8 @@ export class SignupComponent implements OnInit {
   registrationError: string | null = null;
 
 
-  hidePassword: boolean = true;
+  hide: boolean = true;
 
-  togglePasswordVisibility() {
-  this.hidePassword = !this.hidePassword;
-  }
   
   constructor(private apiAuthServices: ApiAuthService,  private router: Router){}
 
@@ -43,7 +40,7 @@ export class SignupComponent implements OnInit {
 
           setTimeout(() => {
             this.router.navigate([`validate/${response.verify}`]);
-          }, 3000);
+          }, 1000);
           
         },
         (error: any) => {

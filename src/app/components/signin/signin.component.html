@@ -13,10 +13,12 @@
 
   <mat-form-field>
      <mat-label>Password</mat-label>
-  <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" formControlName="password">
-  <button class="mat-button-small" mat-icon-button matSuffix (click)="togglePasswordVisibility()">
-    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-  </button>
+
+        <input matInput [type]="hide ? 'password' : 'text'" name="password" formControlName="password" ngModel required="true">
+      <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+
   </mat-form-field>
   <p *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.dirty ||
     !loginForm.get('password')?.valid && loginForm.get('password')?.touched   ||
