@@ -30,6 +30,4 @@ private apiUrl = 'http://localhost:3001/v1/auth';
     localStorage.removeItem('user');
   }
 
-  
-  
 }
