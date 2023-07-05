@@ -10,7 +10,15 @@ import { ApiAuthService } from 'src/app/services/api-auth.service';
 })
 export class SignInComponent implements OnInit {
   loginForm!: FormGroup;
-  loginError: string | null = null;
+  errorMessage = '';
+  hidePassword: boolean = true;
+
+  togglePasswordVisibility() {
+  this.hidePassword = !this.hidePassword;
+  }
+
+
+  
 
   constructor(private router: Router, private apiAuthService: ApiAuthService) { }
   isLogged = this.apiAuthService.isLogged.next(false);
@@ -19,9 +27,10 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
     });
   }
+  
 
   onSubmit() {
     if (this.loginForm.valid) {
@@ -45,11 +54,8 @@ export class SignInComponent implements OnInit {
           this.router.navigate(['/characters']);
         },
         (error: any) => {
-          // Gestisci l'errore di login qui
-          if (error.error.message === 'Invalid credentials') {
-            this.loginError = 'Invalid credentials';
-            this.isLogged = this.apiAuthService.isLogged.next(false)
-          }
+          this.errorMessage = error?.error?.message || '';
+          this.isLogged = this.apiAuthService.isLogged.next(false)
         }
       );
     }

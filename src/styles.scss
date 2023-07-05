@@ -28,3 +28,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
      
     }
   }
+
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    width: 210px;
+
+    @media screen and (min-width: 600px) {
+      width: 300px;
+    }
+  }
