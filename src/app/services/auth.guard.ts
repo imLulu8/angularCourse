@@ -16,11 +16,13 @@ export class AuthGuard implements CanActivate {
       return true;
     } else {
       this.openAlert();
-      this.router.navigate(['/signin']);
 
       setTimeout(() => {
+        this.router.navigate(['/signin']);
         this.closeAlert();
       }, 2000);
+
+ 
 
       return false;
 

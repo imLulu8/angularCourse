@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiAuthService } from 'src/app/services/api-auth.service';
-import { AuthInterceptorService } from 'src/app/services/auth-interceptor.service';
 
 @Component({
   selector: 'app-navbar',
