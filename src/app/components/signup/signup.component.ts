@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiAuthService } from 'src/app/services/api-auth.service';
 import { Router } from '@angular/router';
@@ -10,17 +10,17 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+
   registrationSuccess = false;
   registerForm! : FormGroup
   registrationError: string | null = null;
-
-
   hide: boolean = true;
 
   
   constructor( private apiAuthServices: ApiAuthService,  
     private router: Router, 
-    private sharedService : SharedService){}
+    private sharedService : SharedService,
+    ){}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -43,9 +43,10 @@ export class SignupComponent implements OnInit {
           this.registerForm.reset();
 
           setTimeout(() => {
-            // this.closeAlert();
-            // this.router.navigate([`validate/${response.verify}`]);
-          }, 1000);
+            this.closeAlert();
+            this.router.navigate([`validate/${response.verify}`]);
+          }, 2000);
+
         },
         (error: any) => {
           // Gestisci l'errore di registrazione qui
@@ -60,19 +61,16 @@ export class SignupComponent implements OnInit {
 
   openAlert(): void {
     this.sharedService.handleAlert.next({
-      message: 'Sign up success',
-      isVisible: true
+      message: 'Sign up success, verify your account..',
+      isVisible: true,
+      style: 'primary'
     })
-  }
+}
 
   closeAlert():void {
     this.sharedService.handleAlert.next({
       isVisible: false
     })
-
   }
-
-
-
 
 }

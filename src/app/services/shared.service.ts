@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-interface AlerData {
+//TODO mettilo nel modello
+export interface AlertData {
     message?: string;
     isVisible?: boolean;
+    style?: 'primary' | 'secondary';
 }
 
 @Injectable({
@@ -12,6 +14,6 @@ interface AlerData {
 
 export class SharedService {
 
-    handleAlert = new BehaviorSubject<AlerData>({});
+    handleAlert = new BehaviorSubject<AlertData>({});
 
 }

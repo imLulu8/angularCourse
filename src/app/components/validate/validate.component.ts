@@ -42,7 +42,7 @@ export class ValidateComponent implements OnInit {
           setTimeout(() => {
             this.closeAlert();
             this.router.navigate(['/signin']);
-          }, 1000);
+          }, 3000);
         },
         
         (error: any) => {
@@ -58,7 +58,7 @@ export class ValidateComponent implements OnInit {
 
   openAlert(): void {
     this.sharedService.handleAlert.next({
-      message: 'Validation successfull. Go to login',
+      message: 'Validation successfull. You are about to be redirected to login..',
       isVisible: true
     })
   }

@@ -17,19 +17,27 @@ export class AuthGuard implements CanActivate {
     } else {
       this.openAlert();
       this.router.navigate(['/signin']);
+
+      setTimeout(() => {
+        this.closeAlert();
+      }, 2000);
+
       return false;
+
     }
   }
 
-
   openAlert(): void {
     this.sharedService.handleAlert.next({
-      message: 'Non puoi perchè ti devi loggare',
+      message: 'To view the characters, please login...',
       isVisible: true
     })
   }
 
+  closeAlert():void {
+    this.sharedService.handleAlert.next({
+      isVisible: false
+    })
+  }
 
 }
-
-
