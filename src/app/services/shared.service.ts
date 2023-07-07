@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { AlertData } from '../models/alert';
 
-//TODO mettilo nel modello
-export interface AlertData {
-    message?: string;
-    isVisible?: boolean;
-    style?: 'primary' | 'secondary';
-}
 
 @Injectable({
   providedIn: 'root'
 })
+
 
 export class SharedService {
 

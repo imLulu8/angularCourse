@@ -10,7 +10,8 @@ export class AuthInterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // console.log("🚀~ intercept ~ request:", request);
     
-    // Controlla se l'utente è loggato (puoi personalizzare questa logica in base alla tua implementazione di autenticazione)
+    // Controlla se l'utente è loggato
+    // Prima di prenderlo con getItem ricorda di salvarlo, guarda signin.ts 
     const isLogged = localStorage.getItem('token') !== null;
 
     if (isLogged) {

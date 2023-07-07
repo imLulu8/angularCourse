@@ -59,6 +59,8 @@ export class SignupComponent implements OnInit {
     }
   }
 
+
+  // Passare dinamicamente le props a un generic alert
   openAlert(): void {
     this.sharedService.handleAlert.next({
       message: 'Sign up success, verify your account..',

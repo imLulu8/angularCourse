@@ -32,7 +32,8 @@ export class SignInComponent implements OnInit {
         (response: any) => {
           const token = response.token;
 
-          // Salva il token nel localStorage
+          // Salva il token nel localStorage prima di intercettarlo con l'interceptor
+          // Se non salvi il token nel localStorage, l'interceptor intercetterà il token ma gli arriverà null
           localStorage.setItem('token', token);
              
           // Salva l'utente nel localStorage

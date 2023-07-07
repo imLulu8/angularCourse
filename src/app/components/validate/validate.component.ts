@@ -36,7 +36,7 @@ export class ValidateComponent implements OnInit {
           // Validazione avvenuta con successo
           this.validateSuccess = true;
           this.openAlert();
-          // Effettua l'azione desiderata, come reindirizzamento alla home
+          // Reset del form dopo validateSuccess e dopo aver aperto la modal
           this.validateForm.reset;
 
           setTimeout(() => {
