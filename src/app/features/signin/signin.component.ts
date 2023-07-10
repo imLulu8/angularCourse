@@ -8,7 +8,7 @@ import { ApiAuthService } from 'src/app/services/api-auth.service';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class SigninComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
   hide: boolean = true;
