@@ -20,7 +20,6 @@ export class CharactersComponent implements OnInit, AfterViewInit, AfterViewChec
 
   ngOnInit(): void {
     this.isDrawerOpened = false;
-    // this.disabledClose = !this.isMobile;
     this.apiservice.getCharacters('http://localhost:3001/v1/characters')
       .subscribe((data: any) => {
         console.log(data)

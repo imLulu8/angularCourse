@@ -24,6 +24,7 @@ import { ValidateModule } from './features/validate/validate.module';
 import { NotfoundModule } from './features/notfound/notfound.module';
 import { CommonModule } from '@angular/common';
 import { BaseModule } from './shared/module/base.module';
+import { MaterialModule } from './shared/module/material.module';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { BaseModule } from './shared/module/base.module';
     ValidateModule,
     NotfoundModule,
     BaseModule,
+    MaterialModule,
   ],
   providers: [
     NgModel,
