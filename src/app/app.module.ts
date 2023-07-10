@@ -22,8 +22,8 @@ import { CharactersModule } from './features/characters/characters.module';
 import { SignupModule } from './features/signup/signup.module';
 import { ValidateModule } from './features/validate/validate.module';
 import { NotfoundModule } from './features/notfound/notfound.module';
-import { AngularModuleModule } from './shared/module/angular.module';
 import { CommonModule } from '@angular/common';
+import { BaseModule } from './shared/module/base.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { CommonModule } from '@angular/common';
     SignupModule,
     ValidateModule,
     NotfoundModule,
-    AngularModuleModule,
+    BaseModule,
   ],
   providers: [
     NgModel,

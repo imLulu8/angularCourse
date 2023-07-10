@@ -1,6 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -12,13 +11,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 
-
-
 @NgModule({
   declarations: [],
-  exports: [
-    ReactiveFormsModule,
-    FormsModule,
+  exports:[
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
@@ -27,12 +22,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule,
     MatDialogModule,
     MatIconModule,
-    CommonModule
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
@@ -43,4 +35,4 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatIconModule,
   ]
 })
-export class AngularModuleModule { }
+export class MaterialModule { }

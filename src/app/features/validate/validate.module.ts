@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { ValidateRoutingModule } from './validate-routing.module';
 import { ValidateComponent } from './validate.component';
-import { AngularModuleModule } from 'src/app/shared/module/angular.module';
+import { BaseModule } from 'src/app/shared/module/base.module';
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import { AngularModuleModule } from 'src/app/shared/module/angular.module';
   ],
   imports: [
     ValidateRoutingModule,
-    AngularModuleModule,
+    BaseModule,
   ]
 })
 export class ValidateModule { }

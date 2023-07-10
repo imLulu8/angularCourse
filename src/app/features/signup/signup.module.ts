@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
-import { AngularModuleModule } from 'src/app/shared/module/angular.module';
+import { BaseModule } from 'src/app/shared/module/base.module';
+import { MaterialModule } from 'src/app/shared/module/material.module';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { AngularModuleModule } from 'src/app/shared/module/angular.module';
   ],
   imports: [
     SignupRoutingModule,
-    AngularModuleModule
+    BaseModule,
+    MaterialModule,
   ]
 })
 export class SignupModule { }
